@@ -1,3 +1,5 @@
+import { DEFAULT_PRODUCT_IMAGE, PRODUCT_IMAGES } from "@/lib/product-images";
+
 export type StoreModel = "a" | "b" | "c";
 
 export const METIER_NAV = [
@@ -65,7 +67,7 @@ export const PRODUCTS: Product[] = [
     format: "Sachet 250 g · Carton 12",
     priceHt: 3.25,
     priceTtcHint: 3.9,
-    image: "/products/bubble-gum.svg",
+    image: PRODUCT_IMAGES.bubbleGum,
     alt: "Bouteilles bubble gum",
     allergens: "Peut contenir des traces de gluten",
     stock: "En stock",
@@ -81,7 +83,7 @@ export const PRODUCTS: Product[] = [
     format: "Sachet 250 g",
     priceHt: 2.92,
     priceTtcHint: 3.5,
-    image: "/products/strawberries.svg",
+    image: PRODUCT_IMAGES.wildStrawberries,
     alt: "Fraises sauvages",
     allergens: "Sans allergène majeur déclaré",
     stock: "En stock",
@@ -98,7 +100,7 @@ export const PRODUCTS: Product[] = [
     format: "Sachet 250 g",
     priceHt: 3.25,
     priceTtcHint: 3.9,
-    image: "/products/rainbow.svg",
+    image: PRODUCT_IMAGES.rainbowBelts,
     alt: "Rubans acidulés",
     allergens: "Contient des colorants",
     stock: "Stock faible",
@@ -114,7 +116,7 @@ export const PRODUCTS: Product[] = [
     format: "Sachet 250 g",
     priceHt: 2.92,
     priceTtcHint: 3.5,
-    image: "/products/bears.svg",
+    image: PRODUCT_IMAGES.gummyBears,
     alt: "Oursons fruités",
     allergens: "Gélatine porcine",
     stock: "En stock",
@@ -130,7 +132,7 @@ export const PRODUCTS: Product[] = [
     format: "Boîte 100 unités",
     priceHt: 8.4,
     priceTtcHint: 10.08,
-    image: "/products/mood-strawberry.svg",
+    image: PRODUCT_IMAGES.heartLollies,
     alt: "Sucettes cœur",
     allergens: "Sans allergène majeur",
     stock: "En stock",
@@ -146,7 +148,7 @@ export const PRODUCTS: Product[] = [
     format: "Paquet 200 pièces",
     priceHt: 12.5,
     priceTtcHint: 15.0,
-    image: "/products/mood-bananas.svg",
+    image: PRODUCT_IMAGES.marshmallow,
     alt: "Chewing menthe",
     allergens: "Contient sorbitol",
     stock: "En stock",
@@ -161,7 +163,7 @@ export const PRODUCTS: Product[] = [
     format: "Présentoir 24 tubos",
     priceHt: 45.0,
     priceTtcHint: 54.0,
-    image: "/products/hero-bottles.svg",
+    image: PRODUCT_IMAGES.displayMix,
     alt: "Tubo présentoir",
     allergens: "Voir fiche produit",
     stock: "En stock",
@@ -178,7 +180,7 @@ export const PRODUCTS: Product[] = [
     format: "Sachet 500 g",
     priceHt: 5.95,
     priceTtcHint: 7.14,
-    image: "/products/bubble-gum.svg",
+    image: PRODUCT_IMAGES.promoWatermelon,
     alt: "Dragibus promo",
     allergens: "Gélatine",
     stock: "Stock faible",
@@ -436,25 +438,25 @@ export const HERO_CAROUSEL_SLIDES = [
     brand: "DAMEL",
     tagline: "Bouteilles bubble gum — format vrac",
     priceLabel: "À partir de 3,25 € HT",
-    image: "/products/bubble-gum.svg",
+    image: PRODUCT_IMAGES.bubbleGum,
   },
   {
     brand: "FINI",
     tagline: "Fraises sauvages acidulées",
     priceLabel: "À partir de 3,45 € HT",
-    image: "/products/strawberries.svg",
+    image: PRODUCT_IMAGES.wildStrawberries,
   },
   {
     brand: "HARIBO",
     tagline: "Oursons d’or — classique grossiste",
     priceLabel: "À partir de 2,95 € HT",
-    image: "/products/bears.svg",
+    image: PRODUCT_IMAGES.gummyBears,
   },
   {
     brand: "CHUPA CHUPS",
     tagline: "Sucettes tubo présentoir",
     priceLabel: "À partir de 18,90 € HT",
-    image: "/products/rainbow.svg",
+    image: PRODUCT_IMAGES.heartLollies,
   },
 ] as const;
 
@@ -485,17 +487,19 @@ export const PRO_STEPS = [
 
 /** Thumbnail for home rayon tiles (slug → image path). */
 export const CATEGORY_IMAGE_BY_SLUG: Record<string, string> = {
-  vrac: "/products/bubble-gum.svg",
-  sucettes: "/products/rainbow.svg",
-  chewing: "/products/mood-bananas.svg",
-  gadgets: "/products/mood-strawberry.svg",
-  tubos: "/products/hero-bottles.svg",
-  jumbos: "/products/bears.svg",
-  snacking: "/products/acid-ribbons.svg",
-  destockage: "/products/mood-bears.svg",
-  promotions: "/products/mood-strawberry.svg",
-  produits: "/products/bears.svg",
+  vrac: PRODUCT_IMAGES.bubbleGum,
+  sucettes: PRODUCT_IMAGES.heartLollies,
+  chewing: PRODUCT_IMAGES.marshmallow,
+  gadgets: PRODUCT_IMAGES.candyDrops,
+  tubos: PRODUCT_IMAGES.displayMix,
+  jumbos: PRODUCT_IMAGES.rainbowBelts,
+  snacking: PRODUCT_IMAGES.candyRibbon,
+  destockage: PRODUCT_IMAGES.crocodiles,
+  promotions: PRODUCT_IMAGES.candyHeart,
+  produits: PRODUCT_IMAGES.royalGummy,
 };
+
+export { DEFAULT_PRODUCT_IMAGE };
 
 export function formatHt(price: number): string {
   return `${price.toFixed(2).replace(".", ",")} € HT`;

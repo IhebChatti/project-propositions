@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
+import { PRODUCT_IMAGES } from "@/lib/product-images";
 
 type Product = {
   id: number;
@@ -21,7 +22,7 @@ const products: Product[] = [
     badge: "LE GOÛT DE L’ENFANCE",
     flavor: "Bubble gum · Sachet de 250 g",
     price: "3,90 €",
-    image: "/products/bubble-gum.svg",
+    image: PRODUCT_IMAGES.bubbleGum,
     category: "Incontournables",
     alt: "Bouteilles de bonbon rose et bleu au bubble gum",
   },
@@ -31,7 +32,7 @@ const products: Product[] = [
     badge: "FRUITÉ",
     flavor: "Fraise · Sachet de 250 g",
     price: "3,50 €",
-    image: "/products/strawberries.svg",
+    image: PRODUCT_IMAGES.wildStrawberries,
     category: "Gélifiés",
     alt: "Bonbons fraises sauvages rouges",
   },
@@ -41,7 +42,7 @@ const products: Product[] = [
     badge: "ÇA PÉTILLE",
     flavor: "Multifruits · Sachet de 250 g",
     price: "3,90 €",
-    image: "/products/rainbow.svg",
+    image: PRODUCT_IMAGES.rainbowBelts,
     category: "Acidulés",
     alt: "Rubans de bonbons acidulés arc-en-ciel",
   },
@@ -51,7 +52,7 @@ const products: Product[] = [
     badge: "LES INTEMPORELS",
     flavor: "Multifruits · Sachet de 250 g",
     price: "3,50 €",
-    image: "/products/bears.svg",
+    image: PRODUCT_IMAGES.gummyBears,
     category: "Gélifiés",
     alt: "Oursons fruités colorés",
   },
@@ -134,7 +135,7 @@ export default function Storefront() {
         <div className="hero-visual">
           <div className="hero-splash splash-one" />
           <div className="hero-splash splash-two" />
-          <Image src="/products/hero-bottles.svg" alt="Bouteilles rose et bleu au bubble gum, enrobées de sucre" width={780} height={720} priority />
+          <Image src={PRODUCT_IMAGES.bubbleGum} alt="Bouteilles rose et bleu au bubble gum, enrobées de sucre" width={780} height={720} priority />
           <div className="hero-caption">
             <span>À partager. Ou pas.</span>
             <a href="#selection">Découvrir les bouteilles bubble gum <ArrowIcon /></a>
@@ -199,7 +200,7 @@ export default function Storefront() {
 
       <section className="acid-section" id="acidules">
         <div className="acid-image">
-          <Image src="/products/acid-ribbons.svg" alt="Rubans arc-en-ciel acidulés" width={900} height={760} />
+          <Image src={PRODUCT_IMAGES.rainbowBelts} alt="Rubans arc-en-ciel acidulés" width={900} height={760} />
         </div>
         <div className="acid-copy">
           <p className="eyebrow">POUR LES AMOUREUX DE L’ACIDULÉ</p>
@@ -217,15 +218,15 @@ export default function Storefront() {
         <div className="mood-grid">
           <a className="mood-card pink" href="#selection">
             <div><h3>La vie en fraise.</h3><p>Fruitée, tendre, irrésistible.</p><span>Bonbons fraises <ArrowIcon /></span></div>
-            <Image src="/products/mood-strawberry.svg" alt="Bonbons fraises" width={560} height={460} />
+            <Image src={PRODUCT_IMAGES.candyStrawberry} alt="Bonbons fraises" width={560} height={460} />
           </a>
           <a className="mood-card blue" href="#selection">
             <div><h3>Les classiques ont tout bon.</h3><p>Le plaisir de les retrouver.</p><span>Oursons fruités <ArrowIcon /></span></div>
-            <Image src="/products/mood-bears.svg" alt="Oursons fruités" width={560} height={460} />
+            <Image src={PRODUCT_IMAGES.royalGummy} alt="Oursons fruités" width={560} height={460} />
           </a>
           <a className="mood-card yellow" href="#selection">
             <div><h3>Une touche de soleil.</h3><p>Les petits bonheurs jaunes.</p><span>Bonbons bananes <ArrowIcon /></span></div>
-            <Image src="/products/mood-bananas.svg" alt="Bonbons bananes" width={560} height={460} />
+            <Image src={PRODUCT_IMAGES.sugarBananas} alt="Bonbons bananes" width={560} height={460} />
           </a>
         </div>
       </section>

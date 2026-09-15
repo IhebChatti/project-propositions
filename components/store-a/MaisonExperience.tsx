@@ -13,6 +13,7 @@ import {
   PRO_STEPS,
   REVIEWS,
   CATEGORY_IMAGE_BY_SLUG,
+  DEFAULT_PRODUCT_IMAGE,
   HERO_TRUST_STRIP,
   formatHt,
   getProduct,
@@ -117,7 +118,7 @@ export default function MaisonExperience({ variant, productId }: Props) {
                   <div className="maison-vitrine-badge">{HERO_FEATURE.badge ?? "Sélection maison"}</div>
                   <div className="maison-vitrine-art">
                     <Image
-                      src="/products/hero-bottles.svg"
+                      src={HERO_FEATURE.image}
                       alt={HERO_FEATURE.alt}
                       width={480}
                       height={400}
@@ -168,7 +169,7 @@ export default function MaisonExperience({ variant, productId }: Props) {
             >
               <MotionStagger className="maison-rayon-grid">
                 {CATEGORY_TILES.slice(0, 6).map((cat) => {
-                  const thumb = CATEGORY_IMAGE_BY_SLUG[cat.slug] ?? "/products/bubble-gum.svg";
+                  const thumb = CATEGORY_IMAGE_BY_SLUG[cat.slug] ?? DEFAULT_PRODUCT_IMAGE;
                   return (
                     <Link key={cat.slug} href={`${ROOT}/catalogue?cat=${cat.slug}`} className="maison-rayon-card">
                       <ProductArtFrame src={thumb} alt="" theme="maison" size={240} />

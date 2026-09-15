@@ -14,6 +14,7 @@ import {
   REVIEWS,
   HERO_TRUST_STRIP,
   CATEGORY_IMAGE_BY_SLUG,
+  DEFAULT_PRODUCT_IMAGE,
   formatHt,
   getProduct,
   type Product,
@@ -30,7 +31,7 @@ import MotionStagger from "@/components/store-shared/MotionStagger";
 import { useHeaderElevate } from "@/components/store-shared/useHeaderElevate";
 
 const ROOT = storeRoot("c");
-const HERO_CANDY = "/products/bubble-gum.svg";
+const HERO_FEATURE = PRODUCTS.find((p) => p.id === "1") ?? PRODUCTS[0];
 
 type Props = { variant: StoreVariant; productId?: string };
 
@@ -83,7 +84,7 @@ export default function SugarLabExperience({ variant, productId }: Props) {
             </MotionReveal>
             <MotionReveal className="lab-hero-showcase" immediate delayMs={100}>
               <div className="lab-showcase-main motion-float-on-hover">
-                <Image src="/products/hero-bottles.svg" alt="" width={440} height={360} className="lab-showcase-hero-img" priority />
+                <Image src={HERO_FEATURE.image} alt={HERO_FEATURE.alt} width={440} height={360} className="lab-showcase-hero-img" priority />
               </div>
               {heroTops.map((p) => (
                 <Link key={p.id} href={`${ROOT}/produit/${p.id}`} className="lab-showcase-card motion-float-on-hover">
@@ -120,7 +121,7 @@ export default function SugarLabExperience({ variant, productId }: Props) {
           <StoreSection title="Nos rayons" actionHref={`${ROOT}/catalogue`}>
             <MotionStagger className="lab-rayon-grid">
               {CATEGORY_TILES.slice(0, 6).map((cat) => {
-                const thumb = CATEGORY_IMAGE_BY_SLUG[cat.slug] ?? HERO_CANDY;
+                const thumb = CATEGORY_IMAGE_BY_SLUG[cat.slug] ?? DEFAULT_PRODUCT_IMAGE;
                 return (
                   <Link key={cat.slug} href={`${ROOT}/catalogue?cat=${cat.slug}`} className="lab-rayon-card motion-float-on-hover">
                     <ProductArtFrame src={thumb} alt="" theme="lab" size={200} />

@@ -16,6 +16,7 @@ import {
   getProduct,
   type Product,
 } from "@/lib/mock-data";
+import { PRODUCT_IMAGES } from "@/lib/product-images";
 import StoreChatbot from "@/components/chatbot/StoreChatbot";
 import OrderTrackingTeaser from "@/components/pwa/OrderTrackingTeaser";
 import { DemoButton } from "@/components/DemoButton";
@@ -119,7 +120,7 @@ export default function GrossisteExperience({ variant, productId }: Props) {
                 </form>
               </div>
               <div className="gross-hero-visual motion-float-on-hover">
-                <ProductArtFrame src="/products/hero-bottles.svg" alt="" theme="gross" size={320} />
+                <ProductArtFrame src={PRODUCT_IMAGES.displayMix} alt="Présentoirs et tubos Assia Sweet" theme="gross" size={320} />
                 <p>Présentoirs &amp; tubos — best-sellers pro</p>
               </div>
             </div>
