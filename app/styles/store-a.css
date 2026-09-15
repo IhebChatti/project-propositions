@@ -1,0 +1,466 @@
+/* Maison Assia — editorial vitrine */
+.maison-root {
+  overflow-x: hidden;
+  --maison-cream: #fffdf8;
+  --maison-rose: #ff4f8a;
+  --maison-gold: #c9a227;
+  --maison-ink: #2a1f1a;
+  background: var(--maison-cream);
+  color: var(--maison-ink);
+  font-family: var(--font-maison-body, var(--font-body));
+  padding-bottom: 96px;
+}
+.maison-root h1,
+.maison-root h2,
+.maison-brand {
+  font-family: var(--font-display, Georgia, serif);
+}
+
+.maison-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 20px clamp(16px, 4vw, 48px);
+  padding-right: 200px;
+  border-bottom: 1px solid rgba(42, 31, 26, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(255, 253, 248, 0.92);
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.35s ease, background 0.35s ease;
+}
+.maison-hero { position: relative; overflow: hidden; }
+.maison-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.maison-nav a:hover { color: var(--maison-rose); }
+.maison-brand {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+}
+.maison-brand-assia { font-size: 1.5rem; font-weight: 600; }
+.maison-brand-sweet { font-size: 1.5rem; font-style: italic; color: var(--maison-rose); }
+.maison-brand small { font-size: 10px; letter-spacing: 0.2em; color: var(--maison-gold); margin-top: 4px; }
+.maison-header-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+}
+.maison-search-link,
+.maison-pro-link {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.maison-cart {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+.maison-cart span {
+  display: inline-block;
+  margin-left: 4px;
+  background: var(--maison-rose);
+  color: #fff;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.maison-hero {
+  min-height: min(92vh, 900px);
+  padding: clamp(32px, 5vw, 56px) clamp(16px, 4vw, 48px) 64px;
+  position: relative;
+  background: linear-gradient(135deg, #fff9f2 0%, #fce8f0 45%, var(--maison-cream) 100%);
+}
+.maison-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
+}
+.maison-hero-vitrine {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+  width: 100%;
+}
+.maison-vitrine-main {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(165deg, #fff 0%, #f7e8ef 100%);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 32px 64px rgba(42, 31, 26, 0.1);
+  border: 1px solid rgba(255, 79, 138, 0.12);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.maison-vitrine-main:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 40px 72px rgba(42, 31, 26, 0.14);
+}
+.maison-vitrine-badge {
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--maison-gold);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.maison-vitrine-art {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  padding: 16px;
+}
+.maison-vitrine-hero-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: contain;
+}
+.maison-vitrine-caption,
+.maison-vitrine-card div {
+  margin-top: 12px;
+  font-family: var(--font-display, Georgia, serif);
+}
+.maison-vitrine-caption span,
+.maison-vitrine-card span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.55;
+  display: block;
+}
+.maison-vitrine-caption strong,
+.maison-vitrine-card strong {
+  display: block;
+  font-size: 1.35rem;
+  margin: 4px 0;
+}
+.maison-vitrine-caption em,
+.maison-vitrine-card em {
+  color: var(--maison-rose);
+  font-style: normal;
+  font-weight: 600;
+}
+.maison-vitrine-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 16px 40px rgba(42, 31, 26, 0.08);
+  border: 1px solid rgba(42, 31, 26, 0.06);
+  transition: transform 0.2s;
+}
+.maison-vitrine-card:hover { transform: translateY(-3px); }
+.maison-vitrine-card strong { font-size: 1rem; }
+.maison-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 11px;
+  color: var(--maison-gold);
+  margin: 0 0 16px;
+}
+.maison-hero h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  margin: 0 0 20px;
+  font-weight: 400;
+}
+.maison-hero h1 em { font-style: italic; color: var(--maison-rose); }
+.maison-hero-lead { max-width: 38ch; line-height: 1.6; opacity: 0.85; }
+.maison-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
+.maison-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+}
+.maison-btn-primary { background: var(--maison-rose); color: #fff; }
+.maison-btn-ghost { border-color: var(--maison-ink); background: transparent; }
+.maison-trust-line {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--maison-gold);
+  border-top: 1px solid rgba(201, 162, 39, 0.35);
+  padding-top: 16px;
+  margin-top: 24px;
+}
+.maison-shell { max-width: 1160px; margin: 0 auto 48px; padding: 0 clamp(16px, 4vw, 32px); }
+.maison-root .store-section-head h2 { font-family: var(--font-display, Georgia, serif); }
+.maison-brands-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+}
+.maison-steps-list {
+  list-style: none;
+  padding: 0;
+  max-width: 640px;
+  margin: 0 0 24px;
+}
+.maison-steps-list li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(42, 31, 26, 0.08);
+}
+.maison-steps-list li span {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--maison-gold);
+}
+.maison-steps-cta { display: inline-block; }
+
+.maison-catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.maison-product-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(42, 31, 26, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.maison-product-card:hover {
+  box-shadow: 0 20px 48px rgba(42, 31, 26, 0.1);
+  transform: translateY(-2px);
+}
+.maison-product-card-body {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.maison-product-brand {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
+.maison-product-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.maison-product-price { color: var(--maison-rose); font-weight: 600; margin: 4px 0 8px; }
+.maison-product-add {
+  margin-top: auto;
+  width: 100%;
+  padding: 12px;
+  font-size: 13px;
+}
+
+.maison-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.maison-catalogue-page { max-width: 1160px; margin: 0 auto; padding: 40px clamp(16px, 4vw, 32px) 80px; padding-right: 200px; }
+.maison-catalogue-header h1 { margin: 0 0 8px; font-size: 2.5rem; }
+.maison-catalogue-header p { margin: 0 0 32px; opacity: 0.7; }
+.maison-catalogue-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.maison-catalogue-aside {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(42, 31, 26, 0.08);
+}
+.maison-catalogue-aside strong {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  opacity: 0.55;
+}
+.maison-catalogue-aside button {
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+}
+.maison-catalogue-aside button.active,
+.maison-catalogue-aside button:hover {
+  background: #f7e8ef;
+  color: var(--maison-rose);
+}
+.maison-fiche-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.maison-scroll-cue {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.maison-body { padding: 24px 0 48px; }
+.maison-trust-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.maison-trust-cards div {
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid rgba(201, 162, 39, 0.2);
+  border-radius: 8px;
+}
+.maison-trust-cards strong { display: block; font-family: var(--font-display); font-size: 1.25rem; color: var(--maison-rose); }
+.maison-trust-cards span { font-size: 12px; opacity: 0.7; }
+.maison-rayon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.maison-rayon-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.maison-rayon-card strong { font-family: var(--font-display); font-size: 1.2rem; }
+.maison-rayon-card span { font-size: 13px; opacity: 0.65; }
+.maison-quote {
+  margin: 48px auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.45;
+}
+.maison-quote footer { margin-top: 16px; font-size: 14px; opacity: 0.65; font-family: var(--font-maison-body); }
+
+.maison-page { padding: 48px clamp(16px, 4vw, 64px); padding-right: 200px; }
+.maison-fiche-visual { position: sticky; top: 24px; }
+.maison-price { font-size: 1.5rem; color: var(--maison-rose); }
+.maison-colophon { font-size: 14px; }
+.maison-colophon dt { opacity: 0.6; }
+.maison-cart-redirect { text-align: center; max-width: 480px; }
+.maison-form label { display: block; margin-bottom: 16px; }
+.maison-form input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px;
+  border: 1px solid rgba(42, 31, 26, 0.15);
+  border-radius: 8px;
+}
+
+.maison-search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  background: rgba(255, 253, 248, 0.97);
+  padding: 80px clamp(24px, 6vw, 80px);
+  overflow-y: auto;
+}
+.maison-search-overlay input {
+  width: 100%;
+  max-width: 640px;
+  font-size: 1.5rem;
+  font-family: var(--font-display);
+  border: none;
+  border-bottom: 2px solid var(--maison-gold);
+  padding: 12px 0;
+  background: transparent;
+  margin-bottom: 24px;
+}
+.maison-search-close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .maison-header { grid-template-columns: 1fr; text-align: center; padding-right: 16px; }
+  .maison-nav { justify-content: center; order: 3; }
+  .maison-header-actions { justify-content: center; order: 2; }
+  .maison-hero-inner { grid-template-columns: 1fr; }
+  .maison-vitrine-main { grid-row: auto; }
+  .maison-hero-vitrine { grid-template-columns: 1fr; }
+  .maison-fiche-grid { grid-template-columns: 1fr; }
+  .maison-page { padding-right: 16px; }
+  .maison-catalogue-page { padding-right: 16px; }
+  .maison-catalogue-layout { grid-template-columns: 1fr; }
+  .maison-catalogue-aside { position: static; flex-direction: row; flex-wrap: wrap; }
+  .maison-trust-cards { grid-template-columns: 1fr 1fr; }
+  .maison-rayon-grid,
+  .maison-catalogue-grid { grid-template-columns: 1fr; }
+}

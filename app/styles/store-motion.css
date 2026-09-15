@@ -1,0 +1,174 @@
+/* Shared motion — subtle, alive, accessible */
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal,
+  .motion-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.motion-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+.motion-reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.motion-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.motion-stagger--in > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.motion-stagger--in > *:nth-child(1) { transition-delay: 0ms; }
+.motion-stagger--in > *:nth-child(2) { transition-delay: 70ms; }
+.motion-stagger--in > *:nth-child(3) { transition-delay: 140ms; }
+.motion-stagger--in > *:nth-child(4) { transition-delay: 210ms; }
+.motion-stagger--in > *:nth-child(5) { transition-delay: 280ms; }
+.motion-stagger--in > *:nth-child(6) { transition-delay: 350ms; }
+.motion-stagger--in > *:nth-child(7) { transition-delay: 420ms; }
+.motion-stagger--in > *:nth-child(8) { transition-delay: 490ms; }
+.motion-stagger--in > *:nth-child(n + 9) { transition-delay: 520ms; }
+
+/* Hero entrances */
+@keyframes motion-hero-glow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.03); }
+}
+@keyframes motion-float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes motion-shine {
+  0% { background-position: -120% 0; }
+  100% { background-position: 220% 0; }
+}
+
+.motion-hero-glow {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: motion-hero-glow 8s ease-in-out infinite;
+}
+.maison-hero .motion-hero-glow {
+  background: radial-gradient(circle, rgba(255, 79, 138, 0.18) 0%, transparent 65%);
+}
+.lab-hero-split .motion-hero-glow {
+  background: radial-gradient(circle, rgba(247, 217, 94, 0.22) 0%, transparent 60%);
+}
+
+.motion-float-on-hover {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+.motion-float-on-hover:hover {
+  transform: translateY(-6px);
+}
+
+/* Cart drawer */
+.cart-drawer-backdrop {
+  animation: motion-backdrop-in 0.35s ease forwards;
+}
+@keyframes motion-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Buttons */
+.maison-btn,
+.gross-btn,
+.lab-btn {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+.maison-btn:active,
+.gross-btn:active,
+.lab-btn:active {
+  transform: scale(0.98);
+}
+.maison-btn-primary:hover {
+  box-shadow: 0 12px 32px rgba(255, 79, 138, 0.35);
+}
+.gross-btn-solid:hover {
+  box-shadow: 0 10px 28px rgba(229, 49, 82, 0.28);
+}
+.lab-btn-gold:hover {
+  box-shadow: 0 12px 36px rgba(247, 217, 94, 0.35);
+}
+
+/* Product art subtle scale on card hover */
+.maison-product-card .product-art-frame-img,
+.lab-poster-card .product-art-frame-img,
+.gross-grid-card .product-art-frame-img {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.maison-product-card:hover .product-art-frame-img,
+.lab-poster-card:hover .product-art-frame-img,
+.gross-grid-card:hover .product-art-frame-img {
+  transform: scale(1.06);
+}
+
+.maison-vitrine-main {
+  animation: motion-float-soft 7s ease-in-out infinite;
+}
+.lab-showcase-main {
+  animation: motion-float-soft 9s ease-in-out infinite;
+}
+
+/* Header scroll polish (class toggled via JS) */
+.store-header-elevated {
+  box-shadow: 0 8px 32px rgba(23, 19, 16, 0.08);
+  transition: box-shadow 0.35s ease, background 0.35s ease;
+}
+.gross-header.store-header-elevated {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+.lab-island.store-header-elevated {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Trust cards pop */
+.maison-trust-cards > div,
+.lab-trust-strip > div,
+.gross-kpi-strip > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.maison-trust-cards > div:hover,
+.lab-trust-strip > div:hover,
+.gross-kpi-strip > div:hover {
+  transform: translateY(-3px);
+}
+
+/* Chat FAB gentle pulse */
+@keyframes motion-fab-pulse {
+  0%, 100% { box-shadow: 0 8px 28px rgba(23, 19, 16, 0.25); }
+  50% { box-shadow: 0 8px 32px rgba(255, 79, 138, 0.35); }
+}
+.chat-fab {
+  animation: motion-fab-pulse 4s ease-in-out infinite;
+}
+.chat-fab--lab {
+  animation-name: motion-fab-pulse-lab;
+}
+@keyframes motion-fab-pulse-lab {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(247, 217, 94, 0.2); }
+  50% { box-shadow: 0 0 0 8px rgba(247, 217, 94, 0); }
+}
